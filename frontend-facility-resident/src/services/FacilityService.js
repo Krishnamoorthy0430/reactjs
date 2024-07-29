@@ -36,6 +36,5 @@ class FacilityService {
             }
         });
     }
-
 }
 export default new FacilityService();

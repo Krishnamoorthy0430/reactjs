@@ -69,6 +69,16 @@ class FacilityService {
                 }
             });
         }
+
+        
+    fnChangeToAvailable(id)
+    {
+        return axios.put(this.URL+"/status/"+id, {
+            headers: {
+                'Authorization': `Bearer ${this.token}`
+            }
+        });
+    }
 }
 
 export default new FacilityService();

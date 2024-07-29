@@ -26,6 +26,7 @@ class ManagerServiceRegistration
     {
         return axios.post(this.URL+"/register",manager);
     }
+    
     updateManager(id, manager)
     {
         if (this.role === 'Resident') {

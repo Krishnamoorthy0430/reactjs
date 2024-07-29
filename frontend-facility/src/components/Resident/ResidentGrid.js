@@ -15,12 +15,12 @@ const ResidentGrid = () => {
             });
     }, []);
 
-    const updateStatus = (username) => {
-        ManagerServiceRegistration.approveResident(username)
+    const updateStatus = (userName) => {
+        ManagerServiceRegistration.approveResident(userName)
             .then(response => {
                 setResidents(prevResidents => 
                     prevResidents.map(resident => 
-                        resident.username === username ? { ...resident, status: "Approved" } : resident
+                        resident.userName === userName ? { ...resident, status: "Approved" } : resident
                     )
                 );
             })
@@ -29,12 +29,12 @@ const ResidentGrid = () => {
             });
     };
 
-    const deleteStatus = (username) => {
-        ManagerServiceRegistration.declineResident(username)
+    const deleteStatus = (userName) => {
+        ManagerServiceRegistration.declineResident(userName)
             .then(response => {
                 setResidents(prevResidents => 
                     prevResidents.map(resident => 
-                        resident.username === username ? { ...resident, status: "Declined" } : resident
+                        resident.userName === userName ? { ...resident, status: "Declined" } : resident
                     )
                 );
             })
@@ -77,7 +77,7 @@ const ResidentGrid = () => {
                     {residents.map(resident => (
                         <tr key={resident.id}>
                             <td>{resident.id}</td>
-                            <td>{resident.username}</td>
+                            <td>{resident.userName}</td>
                             <td>{resident.status}</td>
                             <td>{resident.name}</td>
                             <td>{resident.flatNo}</td>

@@ -36,7 +36,7 @@ const ResidentGrid = () => {
                     {residents.map(resident => (
                         <tr key={resident.id}>
                             <td>{resident.id}</td>
-                            <td>{resident.username}</td>
+                            <td>{resident.userName}</td>
                             <td>{resident.status}</td>
                             <td>{resident.name}</td>
                             <td>{resident.flatNo}</td>

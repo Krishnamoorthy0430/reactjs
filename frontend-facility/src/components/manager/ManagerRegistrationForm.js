@@ -2,15 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import ManagerServiceRegistration from "../../services/ManagerServiceRegistration";
 
 const ManagerRegistrationForm = () => {
-    const[id, setId]=useState();
-    const[userName, setUsername]=useState();
-    const[password, setPassword]=useState();
-    const[name, setName]=useState();
-    const[status, setStatus]=useState();
-    const[phone, setPhone]=useState();
-    const[email, setEmail]=useState();
-    const [approvalUsername, setApprovalUsername] = useState("");
-    const [approvalStatus, setApprovalStatus] = useState("");
+    const[id, setId]=useState("");
+    const[userName, setUsername]=useState("");
+    const[password, setPassword]=useState("");
+    const[name, setName]=useState("");
+    const[status, setStatus]=useState("");
+    const[phone, setPhone]=useState("");
+    const[email, setEmail]=useState("");
 
     const classname = useRef();
 
@@ -40,15 +38,23 @@ const ManagerRegistrationForm = () => {
             console.log(response.data)
             window.location.reload(false)
         })
-        .catch((error)=>{
-            console.log(error)
-        })
+        .catch((error) => {
+            if (error.response) {
+                console.log("Response data:", error.response.data);
+                console.log("Response status:", error.response.status);
+                console.log("Response headers:", error.response.headers);
+            } else if (error.request) {
+                console.log("Request made but no response received:", error.request);
+            } else {
+                console.log("Error:", error.message);
+            }
+        });
     }
     
     function fnUpdate()
     {
-        var manager = {"id":"","userName":"","password":"","name":"","role":"Manager","status":"","phone":"","email":""};
-        manager.id=id;
+        var manager = {"userName":"","password":"","name":"","role":"Manager","status":"","phone":"","email":""};
+        
         manager.userName=userName;
         manager.password=password;
         manager.name=name;
@@ -66,18 +72,8 @@ const ManagerRegistrationForm = () => {
         })
     }
 
-    function fnApprove() {
-        ManagerServiceRegistration.approveResident(approvalUsername, approvalStatus)
-            .then((response) => {
-                console.log(response.data);
-                window.location.reload(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
 
-    return <div>
+    return <div align="center">
         <h1>Manager Registration</h1>
         ID       : <input type="number" id="id" style={{ width: '300px' }} className={classname.id} onChange={(event)=>{setId(event.target.value)}} /><br/><br/>
         Username : <input type="text" id="userName" style={{ width: '300px' }} className={classname.userName} onChange={(event)=>{setUsername(event.target.value)}} /><br/><br/>
@@ -90,14 +86,6 @@ const ManagerRegistrationForm = () => {
             <input type="button" className="btn btn-primary" value="Create Manager" onClick={fnCreate} />&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="button" className="btn btn-secondary" value="Update Manager" onClick={fnUpdate} />
         </div>
-        <h2>Approve Resident</h2>
-            Username: <input type="text" id="approvalUsername" style={{ width: '300px' }} className={classname.current.userName} onChange={(event) => { setApprovalUsername(event.target.value) }} /><br /><br />
-            Approve: <select id="approvalStatus" style={{ width: '300px' }} className={classname.current.status} onChange={(event) => { setApprovalStatus(event.target.value) }}>
-                <option value="">Select Approval Status</option>
-                <option value="true">Approve</option>
-                <option value="false">Disapprove</option>
-            </select><br /><br />
-            <input type="button" className="btn btn-success" value="Approve Resident" onClick={fnApprove} />
     </div>
 }
 export default ManagerRegistrationForm;

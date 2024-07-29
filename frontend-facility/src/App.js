@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import BookingForm from './components/booking/BookingForm';
+import BookingGrid from './components/booking/BookingGrid';
 import FacilityForm from './components/facility/FacilityForm';
 import FacilityGrid from './components/facility/FacilityGrid';
 import LoginPage from './components/login/LoginPage';
@@ -22,6 +24,8 @@ function App() {
           <Route path="/create-facility" Component={FacilityForm} />
           <Route path="/viewfacility" Component={FacilityGrid} />
           <Route path="/viewresident" Component={ResidentGrid} />
+          <Route path="/book" Component={BookingForm} />
+          <Route path="/viewbookings" Component={BookingGrid} />
           <Route path="/register-resident" Component={ResidentRegistrationForm} />
         </Routes>
   );
