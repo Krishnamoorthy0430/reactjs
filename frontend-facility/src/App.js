@@ -9,6 +9,7 @@ import './App.css';
 // import ResidentRegistrationForm from './components/Resident/ResidentRegistrationForm';
 // import Home from './components/home page/Home';
 
+import BookingDetail from './components/booking/BookingDetail.js';
 import BookingForm from './components/booking/BookingForm.js';
 import BookingGrid from './components/booking/BookingGrid.js';
 import Managerview from "./components/dashboard/ManagerView.js";
@@ -48,6 +49,7 @@ function App() {
       <Route path="/viewfacility" Component={FacilityGrid} />
       <Route path="/viewresident" Component={ResidentGrid} />
       <Route path="/view-booking" Component={BookingGrid} />
+      <Route path="/booking-by-id" Component={BookingDetail} />
       <Route path="/register-resident" Component={ResidentRegistrationForm} />
       <Route path="/residenttable" Component={ResidantTable} />
       <Route path="/facilitycreationmessage" Component={FacilityCreationMessage} />

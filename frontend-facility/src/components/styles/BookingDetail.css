@@ -1,0 +1,60 @@
+/* src/components/BookingDetails.css */
+input {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+p {
+    font-size: 16px;
+}
+
+p.error {
+    color: red;
+}
+
+/* BookingDetails.css */
+.status-approved {
+    color: #fff;
+    background-color: #28a745; /* Green for Approved */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-declined {
+    color: #fff;
+    background-color: #dc3545; /* Red for Declined */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-cancelled {
+    color: #fff;
+    background-color: #6c757d; /* Gray for Cancelled */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+

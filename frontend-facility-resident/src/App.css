@@ -295,3 +295,20 @@ h1 {
   margin-top: 20px;
   width: 100%;
 }
+
+/* BookingDetails.css */
+.btn-fetch-details {
+  background-color: #007bff; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn-fetch-details:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+

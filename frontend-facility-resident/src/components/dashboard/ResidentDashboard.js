@@ -13,6 +13,7 @@ const ResidentDashboard = () => {
         <Link to="/viewresident" className="dashboard-link">View Resident</Link>
         <Link to="/bookfacility" className="dashboard-link">Book Facility</Link>
         <Link to="/viewfacility" className="dashboard-link">View Facility</Link>
+        <Link to="/booking-by-id" className="dashboard-link">View Booking Status</Link>
       </div>
     </div>
   );
