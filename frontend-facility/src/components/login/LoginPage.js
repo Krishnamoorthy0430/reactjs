@@ -15,17 +15,17 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
+        <div className="container" >
             <form onSubmit={handleLogin}>
                 <div>
                     <label>Username</label>
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                </div>
+                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="form-control" placeholder="Enter username" />
+                </div><br/><br/>
                 <div>
                     <label>Password</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                <button type="submit">Login</button>
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="Enter password" />
+                </div><br/><br/>
+                <button type="submit" className="btn-login" >Login</button><br/><br/>
             </form>
         </div>
     )

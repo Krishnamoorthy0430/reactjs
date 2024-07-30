@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import ResidentRegistrationService from "../../services/ResidentRegistrationService";
+import ResidentGrid from "./ResidentGrid";
 
 const ResidentRegistrationForm = () => {
-    const[id, setId]=useState();
-    const[userName, setUsername]=useState();
-    const[password, setPassword]=useState();
-    const[status, setStatus]=useState();
-    const[name, setName]=useState();
-    const[flatNo, setFlatNo]=useState();
-    const[flatType , setFlatType]=useState();
-    const[phone, setPhone]=useState();
-    const[email, setEmail]=useState();
-    const[picture, setPicture]=useState();
+    const[id, setId]=useState("");
+    const[userName, setUsername]=useState("");
+    const[password, setPassword]=useState("");
+    const[status, setStatus]=useState("");
+    const[name, setName]=useState("");
+    const[flatNo, setFlatNo]=useState("");
+    const[flatType , setFlatType]=useState("");
+    const[phone, setPhone]=useState("");
+    const[email, setEmail]=useState("");
+    const[picture, setPicture]=useState("");
+    const[residentData, setResidentData]=useState({});
 
     const classname = useRef();
 
@@ -51,29 +53,67 @@ const ResidentRegistrationForm = () => {
         })
     }
 
-    function fnUpdate()
-    {
-        var resident = {"id":"","userName":"","password":"","role":"Resident","status":"","name":"","flatNo":"","flatType":"","phone":"","email":"","picture":""};
-        resident.id=id;
-        resident.userName=userName;
-        resident.password=password;
-        resident.status=status;
-        resident.name=name;
-        resident.flatNo=flatNo;
-        resident.flatType=flatType;
-        resident.phone=phone;
-        resident.email=email;
-        resident.picture=picture;
+    const fnUpdate = () => {
+        const updatedResident = {};
 
-        ResidentRegistrationService.fnUpdateResident(id)
-        .then((response)=>{
-            console.log(response.data)
-            window.location.reload(false)
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-    }
+        if (name) updatedResident.name = name;
+        if (status) updatedResident.status = status;
+        if (flatNo) updatedResident.flatNo = flatNo;
+        if (flatType) updatedResident.flatType = flatType;
+        if (phone) updatedResident.phone = phone;
+        if (email) updatedResident.email = email;
+        if (picture) updatedResident.picture = picture;
+
+        ResidentRegistrationService.fnUpdateResident(id, updatedResident)
+            .then((response) => {
+                console.log('Facility updated:', response.data);
+            })
+            .catch((error) => {
+                console.error('Error updating facility:', error);
+            });
+    };
+
+    const loadResidentData = () => {
+        ResidentRegistrationService.fnGetResidentById(id)
+            .then(response => {
+                const resident = response.data;
+                setResidentData(resident);
+                setName(resident.name);
+                setStatus(resident.status);
+                setFlatNo(resident.flatNo);
+                setFlatType(resident.flatType);
+                setPhone(resident.phone);
+                setEmail(resident.email);
+                setPicture(resident.picture);
+            })
+            .catch(error => {
+                console.error('Error loading facility data:', error);
+            });
+    };
+
+    // function fnUpdate()
+    // {
+    //     var resident = {"id":"","userName":"","password":"","role":"Resident","status":"","name":"","flatNo":"","flatType":"","phone":"","email":"","picture":""};
+    //     resident.id=id;
+    //     resident.userName=userName;
+    //     resident.password=password;
+    //     resident.status=status;
+    //     resident.name=name;
+    //     resident.flatNo=flatNo;
+    //     resident.flatType=flatType;
+    //     resident.phone=phone;
+    //     resident.email=email;
+    //     resident.picture=picture;
+
+    //     ResidentRegistrationService.fnUpdateResident(id)
+    //     .then((response)=>{
+    //         console.log(response.data)
+    //         window.location.reload(false)
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error)
+    //     })
+    // }
 
     function fnDelete()
     {
@@ -93,6 +133,7 @@ const ResidentRegistrationForm = () => {
     return <div>
         <h1>Resident Registration</h1>
         ID       : <input type="number" id="id" style={{ width: '300px' }} className={classname.id} onChange={(event)=>{setId(event.target.value)}} /><br/><br/>
+        {/* <button onClick={loadResidentData}>Load Resident Data</button> <br /><br /><br /> */}
         Username : <input type="text" id="userName" style={{ width: '300px' }} className={classname.userName} onChange={(event)=>{setUsername(event.target.value)}} /><br/><br/>
         Password : <input type="text" id="password" style={{ width: '300px' }} className={classname.password} onChange={(event)=>{setPassword(event.target.value)}} /><br/><br/>
         Name     : <input type="text" id="name" style={{ width: '300px' }} className={classname.name} onChange={(event)=>{setName(event.target.value)}} /><br/><br/>
@@ -108,6 +149,7 @@ const ResidentRegistrationForm = () => {
         </div>
         <div>
             <br/><br/><br/>
+            <ResidentGrid />
         </div>
     </div>
 }

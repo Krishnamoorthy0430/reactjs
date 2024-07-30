@@ -22,11 +22,7 @@ class ResidentRegistrationService
     }
 
     fnCreateResident(resident) {
-        return axios.post(this.URL+"/register",resident, {
-            headers: {
-                'Authorization': `Bearer ${this.token}`
-            }
-        });
+        return axios.post(this.URL+"/register", resident);
     }
 
     fnDeleteResident(id) {

@@ -21,7 +21,7 @@ const FacilityForm = () => {
 
     function fnCreate()
     {
-        var facility = {"name":"","status":"","description":"","picture":""};
+        var facility = {"name":"","status":"Available","description":"","picture":""};
         facility.name=name;
         facility.status=status;
         facility.description=description;
@@ -88,7 +88,7 @@ const FacilityForm = () => {
         ID : <input type="number" id="id" style={{ width: '300px' }} className={classname.id} onChange={(event)=>{setId(event.target.value)}} /><br/><br/>
         <button onClick={loadFacilityData}>Load Facility Data</button> <br /><br /><br />
         Name     : <input type="text" id="name" style={{ width: '300px' }} className={classname.name} value={name} onChange={(event)=>{setName(event.target.value)}} /><br/><br/>
-        Status  : <input type="text" id="status" style={{ width: '300px' }} className={classname.status} value={status} onChange={(event)=>{setStatus(event.target.value)}} /><br/><br/>
+        {/* Status  : <input type="text" id="status" style={{ width: '300px' }} className={classname.status} value={status} onChange={(event)=>{setStatus(event.target.value)}} /><br/><br/> */}
         Description : <input type="test" id="description" style={{ width: '300px' }} className={classname.description} value={description} onChange={(event)=>{setDescription(event.target.value)}} /><br/><br/>
         Picture  : <input type="text" id="picture" style={{ width: '300px' }} className={classname.picture} value={picture} onChange={(event)=>{setPicture(event.target.value)}} /><br/><br/>
         <div>

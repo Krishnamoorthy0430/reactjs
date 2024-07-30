@@ -85,8 +85,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden; /* Prevent scrollbars from appearing due to alignment */
+  min-height: 100vh;
+  overflow: auto;
 }
 
 .container {
@@ -95,13 +95,15 @@ body {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #ddd; /* Add border around the container */
+  border: 1px solid #ddd;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .container:hover {
@@ -112,6 +114,7 @@ h2 {
   margin-top: 0;
   font-size: 24px;
   color: #333;
+  margin-bottom: 20px; /* Space below the heading */
 }
 
 form {
@@ -121,7 +124,7 @@ form {
 }
 
 form div {
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced margin for better spacing */
 }
 
 label {
@@ -135,14 +138,14 @@ label {
 input[type="text"], input[type="password"] {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc; /* Border for input fields */
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-  border-color: #007bff; /* Change border color on focus */
+  border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
 }
@@ -152,15 +155,16 @@ input::placeholder {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 16px;
   color: #fff;
   background-color: #007bff;
-  border: 1px solid #007bff; /* Border for the button */
+  border: 1px solid #007bff;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
   width: 100%;
+  margin-top: 10px; /* Space above the button */
 }
 
 button:hover {
@@ -190,11 +194,104 @@ button:disabled {
 
 @media (max-width: 480px) {
   .container {
-      width: 90%;
-      padding: 15px;
+    width: 90%;
+    padding: 15px;
   }
 
   button {
-      width: 100%;
+    width: 100%;
   }
+}
+/* Add this to your CSS file */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-group input {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-group .btn-primary {
+  background-color: #007bff;
+}
+
+.btn-group .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-group .btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-group .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-group .btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-group .btn-danger:hover {
+  background-color: #c82333;
+}
+
+.resident-grid-container {
+  margin-top: 20px;
+  width: 100%;
 }

@@ -53,7 +53,7 @@ const ManagerRegistrationForm = () => {
     
     function fnUpdate()
     {
-        var manager = {"userName":"","password":"","name":"","role":"Manager","status":"","phone":"","email":""};
+        var manager = {"userName":"","password":"","name":"","role":"Manager","status":"Active","phone":"","email":""};
         
         manager.userName=userName;
         manager.password=password;
@@ -79,7 +79,7 @@ const ManagerRegistrationForm = () => {
         Username : <input type="text" id="userName" style={{ width: '300px' }} className={classname.userName} onChange={(event)=>{setUsername(event.target.value)}} /><br/><br/>
         Password : <input type="text" id="password" style={{ width: '300px' }} className={classname.password} onChange={(event)=>{setPassword(event.target.value)}} /><br/><br/>
         Name     : <input type="text" id="name" style={{ width: '300px' }} className={classname.name} onChange={(event)=>{setName(event.target.value)}} /><br/><br/>
-        Status   : <input type="text" id="status" style={{ width: '300px' }} className={classname.status} onChange={(event)=>{setStatus(event.target.value)}} /><br/><br/>
+        {/* Status   : <input type="text" id="status" style={{ width: '300px' }} className={classname.status} onChange={(event)=>{setStatus(event.target.value)}} /><br/><br/> */}
         Phone    : <input type="number" id="phone" style={{ width: '300px' }} className={classname.phone} onChange={(event)=>{setPhone(event.target.value)}} /><br/><br/>
         Email    : <input type="text" id="email" style={{ width: '300px' }} className={classname.email} onChange={(event)=>{setEmail(event.target.value)}} /><br/><br/>
         <div>
