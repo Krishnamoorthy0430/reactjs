@@ -85,7 +85,7 @@ const Managerview = () => {
      <div className="col">
       <div className="card text-center">
        <div className="card-body">
-        <h5 className="card-title">Click Here To Access To Resident</h5>
+        <h5 className="card-title">Register Resident Here</h5>
         <p className="card-text">
          Access the form to create,Update and Delete a new resident.
         </p>
@@ -103,7 +103,7 @@ const Managerview = () => {
         <p className="card-text">
          Login to approve or reject resident applications.
         </p>
-        <Link to="/manager/login" className="btn btn-dark">
+        <Link to="/approve-resident" className="btn btn-dark">
          Login to Approve
         </Link>
        </div>
@@ -112,20 +112,9 @@ const Managerview = () => {
      <div className="col">
       <div className="card text-center">
        <div className="card-body">
-        <h5 className="card-title">Get All Residents</h5>
-        <p className="card-text">View a list of all registered residents.</p>
-        <Link to="/residents-list" className="btn btn-dark">
-         View Residents
-        </Link>
-       </div>
-      </div>
-     </div>
-     <div className="col">
-      <div className="card text-center">
-       <div className="card-body">
-        <h5 className="card-title">Click Here To Access Facility </h5>
+        <h5 className="card-title">Create Facility </h5>
         <p className="card-text">
-         Access the form to create,Update,Delete a new facility.
+         Access the form to Create, Update, Delete a new facility.
         </p>
         <Link to="/create-facility" className="btn btn-dark">
          Facility
@@ -156,7 +145,7 @@ const Managerview = () => {
        <div className="card-body">
         <h5 className="card-title">View All Facilities</h5>
         <p className="card-text">View a list of all registered facilities.</p>
-        <Link to="/facilities-list" className="btn btn-dark">
+        <Link to="/viewfacility" className="btn btn-dark">
          View Facilities
         </Link>
        </div>
@@ -176,34 +165,12 @@ const Managerview = () => {
      <div className="col">
       <div className="card text-center">
        <div className="card-body">
-        <h5 className="card-title">Update Booking</h5>
-        <p className="card-text">Access the form to update booking details.</p>
-        <Link to="/update-booking" className="btn btn-dark">
-         Update Booking
-        </Link>
-       </div>
-      </div>
-     </div>
-     <div className="col">
-      <div className="card text-center">
-       <div className="card-body">
         <h5 className="card-title">Approve Booking</h5>
         <p className="card-text">
-         Login to approve or reject booking requests.
+         Approve, reject or cancel booking requests.
         </p>
-        <Link to="/manager/login" className="btn btn-dark">
-         Login to Approve
-        </Link>
-       </div>
-      </div>
-     </div>
-     <div className="col">
-      <div className="card text-center">
-       <div className="card-body">
-        <h5 className="card-title">Cancel Booking</h5>
-        <p className="card-text">Login to cancel bookings.</p>
-        <Link to="/manager/login" className="btn btn-dark">
-         Login to Cancel
+        <Link to="/view-booking" className="btn btn-dark">
+         Approve Bookings
         </Link>
        </div>
       </div>

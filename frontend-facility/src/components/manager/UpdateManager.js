@@ -2,7 +2,7 @@ import { useState } from "react";
 import ManagerServiceRegistration from "../../services/ManagerServiceRegistration";
 import "../styles/ManagerRegistrationForm.css";
 
-const ManagerRegistrationForm = () => {
+const UpdateManager = () => {
  const [id, setId] = useState("");
  const [userName, setUsername] = useState("");
  const [password, setPassword] = useState("");
@@ -14,31 +14,6 @@ const ManagerRegistrationForm = () => {
  const [approvalStatus, setApprovalStatus] = useState("");
 
  const inputClassName = "form-control mb-3";
-
- function fnCreate() {
-  const manager = {
-   id,
-   userName,
-   password,
-   name,
-   role: "Manager",
-   status,
-   phone,
-   email,
-  };
-
-  ManagerServiceRegistration.createManager(manager)
-   .then((response) => {
-    console.log(response.data);
-    window.location.reload(false);
-   })
-   .catch((error) => {
-    console.log(
-     "Request Failed Check your AXIOS or Check your database if you already created a manager"
-    );
-    console.log(error);
-   });
- }
 
  function fnUpdate() {
   const manager = {
@@ -53,17 +28,6 @@ const ManagerRegistrationForm = () => {
   };
 
   ManagerServiceRegistration.updateManager(id)
-   .then((response) => {
-    console.log(response.data);
-    window.location.reload(false);
-   })
-   .catch((error) => {
-    console.log(error);
-   });
- }
-
- function fnApprove() {
-  ManagerServiceRegistration.approveResident(approvalUsername, approvalStatus)
    .then((response) => {
     console.log(response.data);
     window.location.reload(false);
@@ -167,14 +131,6 @@ const ManagerRegistrationForm = () => {
         <input
          type="text"
          className={inputClassName}
-         placeholder="Status"
-         name="Status"
-         id="status"
-         onChange={(event) => setStatus(event.target.value)}
-        />
-        <input
-         type="text"
-         className={inputClassName}
          placeholder="Mobile"
          name="mobile"
          id="phone"
@@ -187,12 +143,6 @@ const ManagerRegistrationForm = () => {
          name="email"
          id="email"
          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-         type="button"
-         className="btn btn-dark mb-3 me-3"
-         value="Create Manager"
-         onClick={fnCreate}
         />
         <input
          type="button"
@@ -209,7 +159,7 @@ const ManagerRegistrationForm = () => {
  );
 };
 
-export default ManagerRegistrationForm;
+export default UpdateManager;
 
 
 // import { useEffect, useRef, useState } from "react";

@@ -94,6 +94,7 @@ const BookingForm = () => {
             {responseMessage && (
                 <div style={{ marginTop: '20px', padding: '10px', border: '1px solid #28a745', borderRadius: '4px', backgroundColor: '#d4edda', color: '#155724' }}>
                     <h2>Booking Details</h2>
+                    <h5>Save this details. You will not be ablw to access it again</h5>
                     <div>
                         <strong>ID:</strong> {id}
                     </div>
@@ -132,6 +133,7 @@ const BookingForm = () => {
                     <p>{errorMessage}</p>
                 </div>
             )} */}
+            
             <div>
                 <FacilityGrid />
             </div>
