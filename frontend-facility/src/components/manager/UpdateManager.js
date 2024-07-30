@@ -22,12 +22,12 @@ const UpdateManager = () => {
    password,
    name,
    role: "Manager",
-   status,
+   status: "Active",
    phone,
    email,
   };
 
-  ManagerServiceRegistration.updateManager(id)
+  ManagerServiceRegistration.updateManager(id, manager)
    .then((response) => {
     console.log(response.data);
     window.location.reload(false);

@@ -27,13 +27,13 @@ class ManagerServiceRegistration
         return axios.post(this.URL+"/register",manager);
     }
     
-    updateManager(id)
+    updateManager(id, manager)
     {
         if (this.role === 'Resident') {
             console.error("Only a Manager can update a facility");
             return Promise.reject("Unauthorized");
         } else if (this.role === 'Manager') {
-            return axios.put(this.URL+"/"+id, {
+            return axios.put(this.URL+"/"+id, manager, {
                 headers: {
                     'Authorization': `Bearer ${this.token}`
                 }
